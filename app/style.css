@@ -1,0 +1,249 @@
+/* DealSleuth: warm paper, ink text, sale red. No web fonts, no images:
+   every visual is CSS, so the page works fully offline. */
+
+:root {
+  --paper: #faf5ec;
+  --card: #fffdf8;
+  --ink: #211d19;
+  --muted: #6b6259;
+  --line: #e4dccb;
+  --red: #b3261e;
+  --red-soft: #fbe9e7;
+  --green: #166534;
+  --green-soft: #e3f0e6;
+  --gold: #8a6d1b;
+  --gold-soft: #f7eeda;
+  --grey-soft: #ece7dd;
+  --navy: #1e3a5f;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+a { color: var(--navy); }
+
+/* ---- header ---- */
+.masthead {
+  background: var(--ink);
+  color: #f5efe3;
+  padding: 28px 20px 22px;
+  border-bottom: 5px solid var(--red);
+}
+.masthead-inner { max-width: 1100px; margin: 0 auto; }
+.eyebrow {
+  margin: 0 0 6px;
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e8b4ae;
+}
+.masthead h1 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+}
+.masthead h1 em { color: #f2c94c; font-style: normal; }
+.strapline { margin: 10px 0 0; font-size: 18px; color: #ddd3c0; max-width: 640px; }
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: Verdana, sans-serif;
+  font-size: 13px;
+}
+.stats b { color: #f2c94c; font-size: 16px; }
+
+/* ---- controls ---- */
+.controls {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 20px;
+}
+.controls-inner { max-width: 1100px; margin: 0 auto; }
+.search-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.search-row input[type="search"],
+.search-row select {
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+}
+.search-row input[type="search"] { flex: 1 1 260px; }
+.search-row select { flex: 0 1 auto; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chip {
+  font-family: Verdana, sans-serif;
+  font-size: 13px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.chip.active { background: var(--ink); color: #f5efe3; border-color: var(--ink); }
+#result-count {
+  margin: 10px 0 0;
+  font-family: Verdana, sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---- grid + cards ---- */
+main { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(33, 29, 25, 0.08);
+}
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cat-tag {
+  font-family: Verdana, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+.verdict {
+  font-family: Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  border-radius: 6px;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+.verdict-real { background: var(--green); color: #fff; }
+.verdict-good { background: var(--green-soft); color: var(--green); }
+.verdict-decent { background: var(--gold-soft); color: var(--gold); }
+.verdict-small { background: var(--grey-soft); color: var(--muted); }
+.card-name { margin: 12px 0 4px; font-size: 21px; line-height: 1.2; }
+.card-blurb { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+.price-row { display: flex; align-items: baseline; gap: 10px; }
+.sale-price { font-size: 30px; font-weight: bold; color: var(--red); }
+.usual-price { font-size: 16px; color: var(--muted); }
+.off-badge {
+  font-family: Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  background: var(--red-soft);
+  color: var(--red);
+  border-radius: 6px;
+  padding: 3px 7px;
+}
+.save-line { margin: 6px 0 0; font-weight: bold; font-size: 15px; }
+.verdict-why { margin: 8px 0 0; font-size: 14px; color: var(--muted); font-style: italic; }
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 14px;
+}
+.store-chip {
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+}
+.store-chip.store-best-buy { background: #0a4d9c; }
+.store-chip.store-playstation-store { background: #5b3a9e; }
+.checked { font-family: Verdana, sans-serif; font-size: 12px; color: var(--muted); }
+.source-note { margin: 8px 0 0; font-size: 12.5px; color: var(--muted); }
+.store-link {
+  display: block;
+  margin-top: 12px;
+  padding: 11px 14px;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: var(--red);
+  border-radius: 9px;
+}
+.store-link:hover { background: #8f1d17; }
+
+#empty-note {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 18px;
+  color: var(--muted);
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+/* ---- how we check + footer ---- */
+.how {
+  max-width: 1100px;
+  margin: 8px auto 0;
+  padding: 0 20px 8px;
+}
+.how-box {
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 18px 22px;
+}
+.how-box h2 { margin: 0 0 8px; font-size: 22px; }
+.how-box p, .how-box li { font-size: 15px; color: #3d3831; }
+.how-box ul { margin: 8px 0 0; padding-left: 20px; }
+footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px 34px;
+  font-family: Verdana, sans-serif;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+footer p { margin: 6px 0; }
+
+/* ---- phone ---- */
+@media (max-width: 640px) {
+  .masthead { padding: 20px 16px 16px; }
+  .masthead h1 { font-size: 32px; }
+  .strapline { font-size: 16px; }
+  .controls { padding: 10px 14px; }
+  main { padding: 14px; }
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+  .sale-price { font-size: 27px; }
+  .search-row input[type="search"] { flex-basis: 100%; }
+  .search-row select { flex: 1 1 40%; }
+}
