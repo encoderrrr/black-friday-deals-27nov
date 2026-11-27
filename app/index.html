@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealSleuth — Real Black Friday Deals, Checked by Hand</title>
+<meta name="description" content="29 real Black Friday and Cyber Monday 2026 deals, each checked on 27 November 2026 at its store or in a named deals roundup, with an honest verdict on whether it is really a deal.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Black Friday &amp; Cyber Monday 2026</p>
+    <h1>Deal<em>Sleuth</em></h1>
+    <p class="strapline">Real deals, checked by hand — every price read at its store or in a named roundup, with an honest verdict on whether it is really a deal.</p>
+    <ul class="stats">
+      <li><b id="stat-deals">29</b> deals checked</li>
+      <li><b id="stat-saving">$4,487.45</b> total saving</li>
+      <li><b id="stat-stores">3</b> stores</li>
+      <li><b id="stat-cats">8</b> categories</li>
+      <li>Checked <b id="stat-checked">27 Nov 2026, 09:00 UTC</b></li>
+    </ul>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-row">
+      <input type="search" id="search" placeholder="Search deals — try “airpods”, “tv” or “lego”…" aria-label="Search deals">
+      <select id="store-filter" aria-label="Filter by store"></select>
+      <select id="discount-filter" aria-label="Filter by minimum discount">
+        <option value="0">Any discount</option>
+        <option value="20">20% off or more</option>
+        <option value="30">30% off or more</option>
+        <option value="40">40% off or more</option>
+        <option value="50">50% off or more</option>
+      </select>
+      <select id="sort" aria-label="Sort deals">
+        <option value="discount">Biggest discount first</option>
+        <option value="saving">Biggest saving first</option>
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+      </select>
+    </div>
+    <div class="chips" id="category-chips" role="group" aria-label="Filter by category"></div>
+    <p id="result-count" aria-live="polite"></p>
+  </div>
+</div>
+
+<main>
+  <div class="grid" id="deal-grid"></div>
+  <p id="empty-note" hidden>No deals match that search. Try a different word, or clear a filter.</p>
+</main>
+
+<section class="how">
+  <div class="how-box">
+    <h2>How we check a deal</h2>
+    <p>Every deal on this page was found and checked by the maker on <strong>27 November 2026, 09:00 UTC</strong>, in one of two ways:</p>
+    <ul>
+      <li><strong>On the store's own page</strong> — the sale price was read on the product page at Amazon, Best Buy or the PlayStation Store. Four deals were checked this way.</li>
+      <li><strong>In a named deals roundup</strong> — the price was read in The Verge's “The best Black Friday deals we've already found”, updated 26 November 2026, which names the store for each price.</li>
+    </ul>
+    <p>The verdict on each card is the maker's own call, from the discount alone: <strong>REAL DEAL</strong> at half price or better, <strong>GOOD DEAL</strong> at 30–49% off, <strong>DECENT DEAL</strong> at 20–29% off, and <strong>SMALL CUT</strong> below 20% — a trim worth having only if you need the thing now. Prices move fast over Black Friday weekend: always check the store link before you buy.</p>
+  </div>
+</section>
+
+<footer>
+  <p>DealSleuth is an independent deal finder built for the make.fun Black Friday bounty. It is not affiliated with Amazon, Best Buy, Sony, Apple or any store named here; store names are used only to say where a deal was found.</p>
+  <p>All 29 deals were checked on 27 Nov 2026, 09:00 UTC. Prices and stock can change — the store link shows the live price.</p>
+</footer>
+</body>
+</html>
